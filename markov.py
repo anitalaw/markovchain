@@ -17,11 +17,6 @@ def open_and_read_file(file_path):
 
 print(open_and_read_file('green-eggs.txt'))
 
-   # words = text.split()
-   #  print(words)
-
-   #  for index in range(len(words) -1):
-   #      print(words[index], words[index + 1])
 
 def make_chains(text_string):
     """Take input text as string; return dictionary of Markov chains.
@@ -48,9 +43,21 @@ def make_chains(text_string):
         [None]
     """
 
+
     chains = {}
 
-    # your code goes here
+    words = text_string.split()
+    # print(words)
+
+    for index in range(len(words) -2):  #same as range(0, len(words))
+        key = (words[index], words[index + 1])
+        value = words[index+2]
+        if key not in chains:
+            chains[key] = []
+        chains[key].append(value)  #append works bc we're accessing the value which is a list
+
+
+    print(chains)
 
     return chains
 
