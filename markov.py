@@ -51,7 +51,7 @@ def make_chains(text_string):
 
     for index in range(len(words) -2):  #same as range(0, len(words))
         key = (words[index], words[index + 1])
-        value = words[index+2]
+        value = words[index + 2]
         if key not in chains:
             chains[key] = []
         chains[key].append(value)  #append works bc we're accessing the value which is a list
@@ -64,10 +64,21 @@ def make_chains(text_string):
 
 def make_text(chains):
     """Return text from chains."""
+    words = [] 
 
-    words = []
+    current_key = choice(list(chains.keys())) 
+    
+    while current_key in chains:  
+        chosen_word = choice(chains[current_key])
+        words.append(chosen_word)
 
-    # your code goes here
+        new_key = (current_key[-1], chosen_word) 
+
+        current_key = new_key
+
+        # print('CURRENT KEY:', current_key) 
+        # print('CHOSEN WORD:', chosen_word)
+        # print('NEW KEY:', str(new_key))
 
     return " ".join(words)
 
