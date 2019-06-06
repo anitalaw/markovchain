@@ -9,9 +9,9 @@ def open_and_read_file(file_path):
     Takes a string that is a file path, opens the file, and turns
     the file's contents as one string of text.
     """
-    filename = open(file_path)  #just opening a filepath (but using with will close it automatically)
-    text = filename.read() #reads the whole file instead (opposite of .readlines())
-    filename.close() #closes the file
+    filename = open(file_path) 
+    text = filename.read() 
+    filename.close() 
 
     return text
 
